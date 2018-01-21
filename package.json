@@ -1,0 +1,48 @@
+{
+  "name": "hapi-graphql",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Hapi GraphQL boilerplate for hapi",
+  "main": "src/index.js",
+  "author": "Philipp Weitz",
+  "license": "MIT",
+  "engines": {
+    "node": "^8.9.0"
+  },
+  "scripts": {
+    "start-debug": "nodemon --inspect=0.0.0.0:65505 ./src/server.js --exec babel-node",
+    "eslint": "eslint ./src",
+    "test": "jest --config=jest-config.json",
+    "migrate:make": "knex migrate:make",
+    "migrate:dev": "knex migrate:latest",
+    "seed:dev": "knex seed:run",
+    "ci": "sh ./scripts/ci.sh",
+    "prepush": "yarn ci"
+  },
+  "dependencies": {
+    "apollo-server-hapi": "1.3.2",
+    "babel-cli": "6.26.0",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-es2016": "6.24.1",
+    "babel-preset-stage-2": "6.24.1",
+    "babel-register": "6.26.0",
+    "graphql": "0.12.3",
+    "graphql-depth-limit": "1.1.0",
+    "graphql-directive": "^0.2.0",
+    "graphql-tools": "^2.18.0",
+    "hapi": "17.2.0",
+    "husky": "0.14.3",
+    "jest": "21.2.1",
+    "knex": "0.14.2",
+    "lodash": "4.17.4",
+    "objection": "0.7.11",
+    "pg": "7.4.0",
+    "yarn": "^1.3.2"
+  },
+  "devDependencies": {
+    "eslint": "4.12.1",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.8.0",
+    "nodemon": "1.12.1"
+  }
+}
