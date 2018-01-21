@@ -20,6 +20,7 @@ const createModel = ({
   BaseModel.jsonSchema = jsonSchema;
   BaseModel.relationMappings = relationMappings;
 
+  // eslint-disable-next-line
   BaseModel.prototype.$formatDatabaseJson = function (json) {
     const formattedJson = Model.prototype.$formatDatabaseJson.call(this, json);
     return _.mapKeys(formattedJson, (value, key) => {
@@ -27,6 +28,7 @@ const createModel = ({
     });
   };
 
+  // eslint-disable-next-line
   BaseModel.prototype.$parseDatabaseJson = function (json) {
     const formattedJson = _.mapKeys(json, (value, key) => {
       return camelCase(key);
@@ -37,12 +39,14 @@ const createModel = ({
     return Model.prototype.$parseDatabaseJson.call(this, formattedJson);
   };
 
+  // eslint-disable-next-line
   BaseModel.prototype.$beforeInsert = function () {
     // const now = new Date().toISOString();
     // this.dateCreated = now;
     // this.lastUpdated = now;
   };
 
+  // eslint-disable-next-line
   BaseModel.prototype.$beforeUpdate = function () {
     this.updatedAt = new Date().toISOString();
   };
